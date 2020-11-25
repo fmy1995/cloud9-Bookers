@@ -1,15 +1,46 @@
- <head>
-    <title>WebCampBackendNew</title>
-    <meta name="csrf-param" content="authenticity_token" />
-<meta name="csrf-token" content="KoWcMHvRpclvBizLYV3gW1KpFSQfhwp29LMUUP3BMHN+mXAYoPm0c5kTO9tjdJkm88uxvIjFk+xus9PJccJMrg==" />
+<h1>Books</h1>
 
-    <link rel="stylesheet" media="all" href="/assets/application-d12397cbc3a266ce5a99f7b588223090c55ca04a439953bb5f9304395de93fc3.css" data-turbolinks-track="reload" />
-    <script src="/assets/application-4e370d3723b6f204426a9414077d365ea07814cce5619ae24fb7e581988f19ed.js" data-turbolinks-track="reload"></script>
-  </head>
+<table>
+<th width = "100px" >Title</th> <th width = "100px" >body</th>
+<th colspan = "3" ></th>
 
-  <body>
-    <h1>ようこそ <strong>Bookers</strong> へ！</h1>
-    <p><strong>Bookers</strong>  では、さまざまな書籍に関するあなたの意見や</p>
-    <p>印象を共有し交換することができます</p>
-<p><a href="/books">start</a></p>
-  </body>
+<tr>
+  <% @books.each do |obj| %>
+</tr>
+
+ <tr>
+ <td width = "100px"><a><%= obj.title %>
+ </a></td>
+ <td width = "100px"><a><%= obj.body %>
+ </a></td>
+
+<td width ="40px" ><a href="/books/<%= obj.id %>">Show
+</a></td>
+<td width ="40px" ><a href="/books/<%= obj.id %>/edit/">Edit
+</a></td>
+<td width ="40px" ><a rel="nofollow" data-method="delete" href="/books/<%= obj.id %>">Delete
+</a></td>
+
+<% end %>
+</tr>
+
+</table>
+
+<h2>New book</h2>
+<form class="new_book" id="new_book" action="/books" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="4Lg1cl14o1zP6g/e9eMcC5cCGM2sFG9aVYWhNOC2AZ0Io7RDewqAJr4qISXPifSmy50lDA9TPvGJVZjDfoQ/8Q==" />
+
+  <div class="field">
+    <label for="book_title">Title</label>
+    <input class="book_title" type="text" name="book[title]" id="book_title" />
+  </div>
+
+  <div class="field">
+    <label for="book_body">Body</label>
+    <textarea class="book_body" name="book[body]" id="book_body">
+</textarea>
+  </div>
+
+  <div class="actions">
+    <input type="submit" name="commit" value="Create Book" data-disable-with="Create Book" />
+  </div>
+</form>

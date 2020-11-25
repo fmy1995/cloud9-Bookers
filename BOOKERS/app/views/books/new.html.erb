@@ -1,47 +1,9 @@
-<!-- form_with部分 -->
-<h1>Books</h1>
-<table>
-  <thead>
-<th>Title</th>
+<% form_for(@book, url{controller:'books', action:'add'})
+do |form| %>
+<tr><th>Title</th>
+<td><%= form.text_field :title, { size:40 } %></td></tr>
 
-<th>Body</th>
+<tr><th>Bpdy</th>
+<td><%= form.text_field :body, { size:40 } %></td></tr>
 
-<th colospan ="3"></th>
-
-
-</thead>
-
-<body>
-<tr>
-  <td>  </td>
-  <td>  </td>
-<td>
-<a class = "show_" href=/>Show</a>
-</td>
-<td>
-<a class = "edit_" href=/>Edit</a>
-</td>
-<td>
-<a class = "destroy_" href=/>Destroy</a>
-</td>
-</tr>
-
-</body>
-</table>
-
-
-
-<h2>New book</h2>
-<%= form_with model:@book, local:true do |f| %>
-<div class="field">
-  <label>Title</label>
-  <%= f.text_field :title %>
-</div>
-<div class="field">
-  <label>Body</label>
-  <%= f.text_area :body %>
-</div>
-
-  <%= f.submit 'Create Book' %>
-
-<% end %>
+<p class ="link"><a href="/books">Back</a></p>

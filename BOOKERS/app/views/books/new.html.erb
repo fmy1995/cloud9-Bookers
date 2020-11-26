@@ -1,9 +1,15 @@
 <% form_for(@book, url{controller:'books', action:'add'})
 do |form| %>
-<tr><th>Title</th>
-<td><%= form.text_field :title, { size:40 } %></td></tr>
 
-<tr><th>Bpdy</th>
-<td><%= form.text_field :body, { size:40 } %></td></tr>
+<% if flash[:notice] %>
+  <p id ="notice"><%= flash[:notice] %></p>
+<% end %>
 
-<p class ="link"><a href="/books">Back</a></p>
+<p><strong>Title:</strong>
+ <%= @book.title %></p>
+<p><strong>Blog:</strong>
+ <%= @book.body %></p>
+
+<%= link_to "Edit", edit_book_path %>
+|
+<%= link_to "Back", books_path %>

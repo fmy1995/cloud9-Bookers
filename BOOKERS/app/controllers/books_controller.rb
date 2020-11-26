@@ -1,4 +1,9 @@
 class BooksController < ApplicationController
+ protect_from_forgery
+ 
+  def top
+  end
+  
   def index
     @books = Book.all
   end
@@ -12,6 +17,7 @@ class BooksController < ApplicationController
   end
 
   def create
+
     book = Book.new(book_params)
     if book.save
     flash[:notice] = "Book was successfully created."

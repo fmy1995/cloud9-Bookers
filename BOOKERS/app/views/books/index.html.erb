@@ -1,24 +1,22 @@
 <h1>Books</h1>
 
 <table>
-<th width = "100px" >Title</th> <th width = "100px" >body</th>
-<th colspan = "3" ></th>
+<th>Title</th> <th>Body</th>
+<th  colspan = "3" ></th>
 
-<tr>
   <% @books.each do |obj| %>
-</tr>
 
  <tr>
- <td width = "100px"><a><%= obj.title %>
+ <td><a><%= obj.title %>
  </a></td>
- <td width = "100px"><a><%= obj.body %>
+ <td><a><%= obj.body %>
  </a></td>
 
-<td width ="40px" ><a href="/books/<%= obj.id %>">Show
+<td><a href="/books/<%= obj.id %>">Show
 </a></td>
-<td width ="40px" ><a href="/books/<%= obj.id %>/edit/">Edit
+<td><a href="/books/<%= obj.id %>/edit/">Edit
 </a></td>
-<td width ="40px" ><a rel="nofollow" data-method="delete" href="/books/<%= obj.id %>">Delete
+<td><a rel="nofollow" data-method="delete" href="/books/<%= obj.id %>">Destroy
 </a></td>
 
 <% end %>

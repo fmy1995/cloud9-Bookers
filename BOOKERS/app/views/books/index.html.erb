@@ -21,11 +21,11 @@
 
 <% end %>
 </tr>
-
 </table>
 
 <h2>New book</h2>
-<form class="new_book" id="new_book" action="/books" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="4Lg1cl14o1zP6g/e9eMcC5cCGM2sFG9aVYWhNOC2AZ0Io7RDewqAJr4qISXPifSmy50lDA9TPvGJVZjDfoQ/8Q==" />
+<form class="new_book" id="new_book" action="/books" accept-charset="UTF-8" method="post">
+  <input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token"/>
 
   <div class="field">
     <label for="book_title">Title</label>
@@ -38,7 +38,7 @@
 </textarea>
   </div>
 
-  <div class="actions">
+  <div class="field">
     <input type="submit" name="commit" value="Create Book" data-disable-with="Create Book" />
   </div>
 </form>

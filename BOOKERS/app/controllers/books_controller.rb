@@ -12,18 +12,15 @@ class BooksController < ApplicationController
    @book = Book.find(params[:id])
   end
 
-  def new
-    @book = Book.new
-  end
-
   def create
-    book = Book.new(book_params)
-    if book.save 
+    @book = Book.new(book_params)
+    @book.save 
+    if @book.id == nil
+      @books = Book.all
+      render 'index'
+    else 
     flash[:notice] = "Book was successfully created."
-    redirect_to book_path(book)
-    else
-    flash[:alert] = "error_explanation"
-    redirect_to books_path
+    redirect_to book_path(@book)
     end
   end
 
@@ -49,5 +46,5 @@ private
   def book_params
     params.require(:book).permit(:title, :body)
   end
-  
+
 end

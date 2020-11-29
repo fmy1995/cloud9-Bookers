@@ -1,7 +1,7 @@
 <h1>Editing Book</h1>
 
 <% @book.errors.full_messages.each do |message| %>
-<div id="error_explanation"> 
+<div id="error_explanation">
  <p2>This error prohibited this book from being saved:</p2>
  <li><%= message %></li></div>
 <% end %>
@@ -12,12 +12,12 @@
   <label>Title</label>
   <%= f.text_field :title %>
 </div>
-  
+
 <div class = "field">
   <label>Body</label>
   <%= f.text_area :body %>
 </div>
-  
+
 <div class = "field">
   <%= f.submit 'Update Book' %>
 </div>
